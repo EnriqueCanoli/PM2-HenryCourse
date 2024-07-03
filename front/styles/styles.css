@@ -1,0 +1,531 @@
+/*---------------------------------navbar------------------------------------------------------------------------------------------------*/
+.custom-navbar {
+  list-style-type: none;
+  /*esto hace que las viñetas de una lista desaparezcan*/
+  margin: 0;
+  /* Aquí estamos diciendo que no queremos ningún espacio alrededor de nuestro elemento */
+  padding: 0;
+  /*Este atributo establece cuánto espacio debe haber entre el borde del elemento y su contenido*/
+  overflow: hidden;
+  /*Esto nos dice cómo manejar el contenido que es más grande que el contenedor. 
+  En este caso, lo estamos configurando en "oculto", lo que significa que si el contenido es demasiado 
+  grande para caber en el contenedor, se ocultará.*/
+  background-color: #333;
+  /*Aquí estamos estableciendo el color de fondo de nuestro elemento*/
+}
+
+.custom-navbar li {
+  float: left;
+  /*Este atributo hace que los elementos floten hacia la izquierda o hacia la derecha dentro de su contenedor.*/
+}
+
+.custom-navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.custom-navbarli a:hover {
+  background-color: #111;
+}
+
+/*------------------------------------------body-------------------------------------------------------*/
+main {
+  font: 1em/1.618 Inter, sans-serif;
+
+  display: flex;
+  /*Con este atributo, podemos controlar cómo se muestra un elemento en la página
+  flex, permite a los elementos dentro de un contenedor estirarse y moverse para que se alineen de la manera que quieras.*/
+  align-items: center;
+  /* Esto se usa en combinación con display: flex y controla cómo se alinean los elementos a lo largo del eje transversal (verticalmente)*/
+  justify-content: center;
+  /*También usado con display: flex, esto controla cómo se alinean los elementos a lo largo del eje principal (horizontalmente).*/
+  min-height: 100vh;
+  /* Establece la altura mínima de un elemento. En este caso, estamos asegurando que el elemento (en este caso, el elemento main) tenga al menos el tamaño de la ventana gráfica disponible*/
+  padding: 30px;
+  margin: 0;
+
+  color: #224;
+  background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
+}
+
+/*cinema*/
+.movie-body {
+  font-family: "Roboto", sans-serif;
+  /* Esto dice qué tipo de fuente usar para el texto.*/
+  display: flex;
+  /* "flex", lo que permite que los elementos dentro de este contenedor se ajusten automáticamente y se distribuyan de manera uniforme.*/
+  height: 100vh;
+  /*Establece la altura del elemento en la pantalla.*/
+  box-sizing: border-box;
+  /*Esto controla cómo se calcula el tamaño total del elemento, incluidos el relleno (padding) y el borde (border). Aquí lo estamos configurando en "border-box", 
+lo que significa que el tamaño total del elemento incluirá su relleno y su borde.*/
+  padding: 0;
+  margin: 0;
+
+
+}
+
+.hero-container {
+  margin: auto;
+  display: flex;
+}
+
+.main-container {
+  width: 270px;
+  height: 750px;
+  position: relative;
+  margin: 0 20px;
+}
+
+.poster-container {
+  width: 230px;
+  position: absolute;
+  /*Controla cómo se posiciona el elemento en relación con su contenedor.*/
+  top: 0;
+  /* Establece la distancia del elemento desde la parte superior de su contenedor. */
+  left: 20px;
+  /* Establece la distancia del elemento desde la parte superior de su contenedor. */
+  z-index: 9999;
+  /*Controla el orden de apilamiento de los elementos en la página. Aquí, estamos configurándolo en 9999 
+para que el elemento tenga una alta prioridad y se muestre encima de otros elementos en la página.*/
+}
+
+.poster {
+  width: 100%;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+
+.ticket-container {
+  background: #fff;
+  width: 270px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  /*Controla la dirección en la que los elementos se apilan dentro de un contenedor flexible.
+Aquí, estamos configurándolo en "column", lo que significa que los elementos se apilarán verticalmente dentro del contenedor.*/
+  align-items: center;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+}
+
+/*Este selector CSS se activa cuando el mouse pasa sobre el elemento con la clase .main-container. 
+Cuando eso sucede, el elemento con la clase .ticket-container dentro de .main-container se muestra con una animación.*/
+.main-container:hover .ticket-container {
+  opacity: 1;
+  /*Este atributo controla la transparencia de un elemento. 
+Estamos estableciendo la opacidad en 1, lo que significa que el elemento se muestra completamente sin transparencia.*/
+  animation: bounceIn 0.6s linear;
+  /*Este atributo se usa para especificar una animación que se aplicará a un elemento. */
+}
+
+/*Esto define una animación llamada bounceIn que se utilizará en la propiedad animation. 
+Esta animación hace que el elemento cambie de tamaño y opacidad con el tiempo, creando un efecto de rebote*/
+@keyframes bounceIn {
+
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    /* Este atributo CSS permite transformar un elemento en 2D o 3D. En este caso, 
+  estamos utilizando la propiedad scale3d para cambiar el tamaño del elemento en tres dimensiones.*/
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.01, 1.01, 1.01);
+    transform: scale3d(1.01, 1.01, 1.01);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+
+.ticket__content {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.ticket__movie-title {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.ticket__movie-slogan {
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.ticket__current-price {
+  color: #69c982;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.ticket__old-price {
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.ticket__buy-btn {
+  /* Este atributo controla la apariencia del cursor del mouse cuando pasa sobre el elemento. Aquí, estamos configurándolo en "pointer", 
+lo que significa que el cursor se convierte en una mano cuando pasa sobre el botón, indicando que es interactivo.*/
+  cursor: pointer;
+  width: 100%;
+  background: #2f2f2f;
+  color: white;
+  padding: 15px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+/*cine*/
+
+.card-history {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 500px;
+  height: 350px;
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
+}
+
+
+/*dulces*/
+/* Este selector CSS se aplica a todos los elementos <article>*/
+article {
+  --img-scale: 1.001;
+  /*Define una variable CSS personalizada para controlar la escala de la imagen dentro del artículo.*/
+  --title-color: black;
+  /* Define una variable CSS personalizada para el color del título del artículo.   */
+  --link-icon-translate: -20px;
+  /*Define una variable CSS personalizada para controlar la posición de un icono vinculado.*/
+  --link-icon-opacity: 0;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #fff;
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  /* Establece la transición para todas las propiedades CSS, 
+  lo que significa que los cambios de estilo se animarán suavemente durante 0.4 segundos.*/
+  overflow: hidden;
+  /*Controla cómo se maneja el contenido que desborda el área de contenido del elemento.*/
+}
+
+article a::after {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 0;
+  cursor: pointer;
+  content: "";
+}
+
+/*  Este selector CSS se aplica a los elementos <h2> dentro de los elementos <article>.
+ Define las propiedades de estilo para los títulos de los artículos.*/
+article h2 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  /*Controla el espaciado entre letras en el título.*/
+  color: var(--title-color);
+  /* Establece el color del texto del título.*/
+  transition: color 0.3s ease-out;
+  /*Define una transición para el color del título, 
+  lo que significa que el cambio de color se animará suavemente durante 0.3 segundos.*/
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  /*Define la relación de aspecto de la figura para mantener una relación de aspecto específica.*/
+  overflow: hidden;/
+}
+
+article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #28666e;
+}
+
+article a:focus {
+  outline: 1px dotted #28666e;
+}
+
+article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+/* Este selector CSS se aplica a los elementos <article> que están siendo activamente enfocados o están siendo señalados. 
+Define las propiedades de estilo para los artículos en estos estados. */
+article:has(:hover, :focus) {
+  --img-scale: 1.1;
+  --title-color: #28666e;
+  --link-icon-translate: 0;
+  --link-icon-opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.articles {
+
+  display: grid;
+  max-width: 1200px;
+  margin-inline: 200px;
+  padding-inline: 300px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  article {
+    container: card/inline-size;
+  }
+
+  .article-body p {
+    display: none;
+  }
+}
+
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+
+  .article-body {
+    padding-left: 0;
+  }
+
+  figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*Agregar pelicula*/
+
+.card-form {
+
+  max-width: 500px;
+  padding: 35px;
+  /*el espacio entre la card y sus elementos*/
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(115px);
+  /*Le damos un efecto borroso al fondo de la tarjeta para que parezca más bonita.*/
+}
+
+.form-grid {
+  /*es la cuadricula donde vamos a organizar nuestros elementos*/
+  display: grid;
+  /*decimos que queremos usar una cuadricula para organizar nuetros elementos*/
+  grid-template-columns: repeat(3, 1fr);
+  /*decimos que queremos dividir la cuadricula en 3 y cada uno ocupara 1fr del espacio dispoble*/
+  grid-gap: 10px;
+  /*: Agregamos un poco de espacio entre las celdas de la cuadrícula para que se vea bien.*/
+}
+
+.form-grid label {
+  /*Esto se aplica a las etiquetas dentro de nuestra cuadrícula.
+Aquí le decimos cómo queremos que se vean nuestras etiquetas dentro de la cuadrícula*/
+  grid-column: 1 / 4;
+  /* Ocupa toda la fila */
+}
+
+.form-grid input[type="text"],
+.form-grid input[type="number"],
+.form-grid input[type="url"] {
+  grid-column: span 2;
+  /* Ocupa dos columnas */
+}
+
+/*Submit button*/
+.form-grid input[id="submitButton"] {
+  grid-column: 1/4;
+  /*definimos que ocuapra desde la fila 1 hasta la 4*/
+}
+
+
+input[id="submitButton"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[id="submitButton"]:hover {
+  background-color: #0056b3;
+}
+
+/*borrar button*/
+.form-grid input[class="borrar"] {
+  grid-column: 1 / 4;
+  /* Ocupa toda la fila */
+}
+
+input[class="borrar"] {
+  padding: 10px 20px;
+  background-color: #ff9e4ee3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[class="borrar"]:hover {
+  background-color: #b34b00e6;
+}
+
+/* Genre options */
+.form-grid label[for^="genre"] {
+  display: inline-block;
+  /* Display labels inline-block */
+  margin-right: 15px;
+  /* Add some space between labels */
+  cursor: pointer;
+  /* Change cursor to pointer when hovering over labels */
+}
+
+.form-grid input[type="checkbox"] {
+  display: none;
+  /* Hide the checkboxes */
+}
+
+/* Custom checkbox style */
+.form-grid input[type="checkbox"]+label:before {
+  content: "";
+  /* Empty content */
+  display: inline-block;
+  /* Display as inline-block */
+  width: 18px;
+  /* Width of the checkbox */
+  height: 18px;
+  /* Height of the checkbox */
+  margin-right: 5px;
+  /* Add some space between checkbox and label */
+  border: 1px solid #ccc;
+  /* Border color */
+  border-radius: 3px;
+  /* Border radius */
+  background-color: #fff;
+  /* Background color */
+}
+
+/* Checked state of the custom checkbox */
+.form-grid input[type="checkbox"]:checked+label:before {
+  background-color: #007bff;
+  /* Change background color when checked */
+}
+
+/* Checkmark icon */
+.form-grid input[type="checkbox"]:checked+label:before:after {
+  content: "\2713";
+  /* Checkmark symbol */
+  display: block;
+  /* Display as block */
+  color: #fff;
+  /* Color of the checkmark */
+  text-align: center;
+  /* Center the checkmark */
+  line-height: 18px;
+  /* Line height equal to checkbox height */
+}
+
+/* Hover state of the custom checkbox */
+.form-grid input[type="checkbox"]+label:hover:before {
+  border-color: #007bff;
+  /* Change border color on hover */
+}
